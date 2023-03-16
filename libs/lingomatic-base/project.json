@@ -1,0 +1,26 @@
+{
+  "name": "lingomatic-base",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/lingomatic-base/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/lingomatic-base",
+        "main": "libs/lingomatic-base/src/index.ts",
+        "tsConfig": "libs/lingomatic-base/tsconfig.lib.json",
+        "assets": ["libs/lingomatic-base/*.md"]
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/lingomatic-base/**/*.ts"]
+      }
+    }
+  },
+  "tags": []
+}

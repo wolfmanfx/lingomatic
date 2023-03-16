@@ -1,0 +1,11 @@
+{
+  "name": "@wamas/lingomatic-extractor",
+  "version": "1.0.0",
+  "bin": {
+    "lingomatic-extractor": "./src/cli.js"
+  },
+  "type": "module",
+  "engines": {
+    "node": ">=18"
+  }
+}

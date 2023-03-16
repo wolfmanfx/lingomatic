@@ -1,0 +1,44 @@
+{
+  "name": "lingomatic-extractor",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "packages/lingomatic-extractor/src",
+  "projectType": "library",
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["packages/lingomatic-extractor/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "packages/lingomatic-extractor/jest.config.ts",
+        "passWithNoTests": true
+      },
+      "configurations": {
+        "ci": {
+          "ci": true,
+          "codeCoverage": true
+        }
+      }
+    },
+    "build": {
+      "executor": "@nrwl/js:tsc",
+      "buildLibsFromSource": true,
+      "updateBuildableProjectDepsInPackageJson": true,
+      "buildableProjectDepsInPackageJsonType": "dependencies",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/packages/lingomatic-extractor",
+        "tsConfig": "packages/lingomatic-extractor/tsconfig.lib.json",
+        "packageJson": "packages/lingomatic-extractor/package.json",
+        "main": "packages/lingomatic-extractor/src/index.ts",
+        "assets": ["packages/lingomatic-extractor/*.md"]
+      }
+    }
+  },
+  "tags": []
+}
